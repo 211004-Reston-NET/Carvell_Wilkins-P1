@@ -1,0 +1,18 @@
+[
+    {
+        "Product": {
+            "Name": "Nike Pants", 
+            "Brand": "Nike",
+            "Price": 55.00
+        },
+        "Quantity": 45
+    },
+    {
+        "Product": {
+            "Name": "Adidas Pants", 
+            "Brand": "Adidas",
+            "Price": 45.00
+        },
+        "Quantity": 125
+    }
+]
