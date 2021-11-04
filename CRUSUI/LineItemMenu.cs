@@ -63,7 +63,7 @@ namespace CRUSUI
                     return MenuType.MainMenu;
 
                 case "1":
-                    Console.WriteLine("Exiting back to the Main Menu. Press enter to continue.");
+                    Console.WriteLine("Exiting back to previous menu. Press enter to continue.");
                     Console.ReadLine();
                     return MenuType.StoreFront;
                 case "5":

@@ -18,6 +18,6 @@ namespace CRUSBL
 
         LineItem GetSingleLineItem(string p_product, int p_price, string p_decription, int p_quantity, int p_productId);
 
-        OrderPlacement OrderPlacement(Customer p_customer, OrderPlacement p_order);
+        OrderPlacement OrderPlacement (string o_ordrplacement);//(Customer p_customer, OrderPlacement p_order);
     }
 }

@@ -8,9 +8,12 @@ namespace CRUSModels
             
         public int _quantity {get;set;}
 
-        public int _lineItemId {get; set;}
+        public int LineItemId {get; set;} // _lineItemId {get; set;}
 
         public int _orderId;
+
+        public string Product {get; set;}
+        public string OrderPlacement {get;set;}
 
 
     

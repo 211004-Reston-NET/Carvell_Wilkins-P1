@@ -9,6 +9,7 @@ namespace CRUSUI
     {
         private ILineItemBL _lineItems;
         private ICustomerBL _customerBL;
+        
         public OrderPlacement(ICustomerBL p_customerBL, ILineItemBL p_lineItems)
         {
             _customerBL = p_customerBL;

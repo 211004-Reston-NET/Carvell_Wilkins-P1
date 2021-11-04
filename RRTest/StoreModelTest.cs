@@ -9,6 +9,7 @@ namespace RRTest
     
     {
         [Fact]
+        [InlineData("dadada")]
         public void CityShouldHaveValidData()
         {//arrange
         Customer _customerTest = new Customer();
@@ -33,7 +34,12 @@ namespace RRTest
     [InlineData("dafafda")]
     [InlineData("uapd")]
     [InlineData("weraedf")]
-    [InlineData("babadfea")]
+    [InlineData("babradfea")]
+    [InlineData("uarpd")]
+    [InlineData("werraedf")]
+    [InlineData("babardfea")]
+    [InlineData("weerraedf")]
+    [InlineData("baebardfea")]
         public void CityShouldFailiWithInvalidData(string p_input)
         
         {            

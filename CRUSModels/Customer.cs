@@ -12,7 +12,7 @@ namespace CRUSModels
         private string _address;
         //private List<Orders> _orders = new List<Orders>();
         public int ID { get; set; }
-
+        public OrderPlacement orderPlacements {get;set;}
         
 
         public string Name

@@ -14,12 +14,16 @@ namespace CRUSModels
         public int ProductId {get;set;}
         
         private int _customerId { get; set; }
+
+     
         
         private int _totalPrice;
 
         public Customer Customer {get; set;}
+        public OrderPlacement orderPlacement {get;set;}
         public StoreFront StoreFront {get;set;}
         public List<LineItem> LineItems {get;set;}
+        public Product product {get;set;}
 
         
         public int CustomerId

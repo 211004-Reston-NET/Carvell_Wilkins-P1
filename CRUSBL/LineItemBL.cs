@@ -29,5 +29,10 @@ namespace CRUSBL
         {
             throw new System.NotImplementedException();
         }
+
+        public OrderPlacement OrderPlacement(string o_ordrplacement)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

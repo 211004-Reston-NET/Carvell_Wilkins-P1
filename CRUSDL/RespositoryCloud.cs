@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Model = CRUSModels;
-using Entity = CRUSDL.Entities;
+using Entity = CRUSDL;
 using CRUSModels;
 using System.Linq;
 
@@ -19,7 +19,7 @@ namespace CRUSDL
         {
             _context.Customers.Add
             (
-               new Entity.Customer()
+               new Customer()
                {
                    Name = p_customer.Name,
                    Email = p_customer.Email,
@@ -133,9 +133,9 @@ namespace CRUSDL
             new Model.StoreFront()
             {
                  Name= StoreFront.Name,
-                 Address = StoreFront.Location,
+                 Address = StoreFront.Address,
                  
-                 StoreFrontId = StoreFront.Id
+                 StoreFrontId = StoreFront.StoreFrontId
             }
              ).ToList();
         
@@ -147,7 +147,7 @@ namespace CRUSDL
            return _context.Products.Select(Product =>
             new Model.Product()
             {
-                 Name= Product.Brand,
+                 Name= Product.Name,
                  ProductId = (int) Product.ProductId,
                  
                  Price = (int) Product.Price,
