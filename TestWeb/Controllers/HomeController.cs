@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using CRUSwebUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using TestWeb.Models;
 
-namespace CRUSwebUI.Controllers
+namespace TestWeb.Controllers
 {
     public class HomeController : Controller
     {

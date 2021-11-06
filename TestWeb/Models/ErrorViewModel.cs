@@ -1,6 +1,6 @@
 using System;
 
-namespace CRUSwebUI.Models
+namespace TestWeb.Models
 {
     public class ErrorViewModel
     {

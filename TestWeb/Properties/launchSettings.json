@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:60742",
-      "sslPort": 44391
+      "applicationUrl": "http://localhost:46773",
+      "sslPort": 44370
     }
   },
   "profiles": {
@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "CRUSwebUI": {
+    "TestWeb": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

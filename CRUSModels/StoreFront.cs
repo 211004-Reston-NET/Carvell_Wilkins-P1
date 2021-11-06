@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CRUSModels
 {
@@ -8,6 +9,9 @@ namespace CRUSModels
     {
         public int StoreFrontId { get; set; }
         public string Name {get;set;}
+        [Required]
+        [MaxLength(100)]
+        public string Description { get; set; }
         public string Address {get;set;}
 
         public String ListOfProducts {get;set;}

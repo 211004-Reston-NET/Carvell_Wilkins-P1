@@ -17,7 +17,7 @@ namespace CRUSDL
             : base(options)
         {
         }
-
+        public virtual DbSet<TestTable> TestTables { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<LineItem> LineItems { get; set; }
         public virtual DbSet<OrderPlacement> OrderPlacements { get; set; }
