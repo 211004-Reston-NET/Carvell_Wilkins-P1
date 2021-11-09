@@ -87,20 +87,20 @@ namespace CRUSDL
 
                 entity.Property(e => e.TotalPrice).HasColumnName("Total_Price");
 
-                // entity.HasOne(d => d.Customer)
-                //     .WithMany(p => p.OrderPlacements)
-                //     .HasForeignKey(d => d.CustomerId)
-                //     .HasConstraintName("FK__OrderPlac__Custo__10566F31");
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.orderPlacements)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK__OrderPlac__Custo__10566F31");
 
                 // entity.HasOne(d => d.Product)
                 //     .WithMany(p => p.OrderPlacements)
                 //     .HasForeignKey(d => d.ProductId)
                 //     .HasConstraintName("FK__OrderPlac__Produ__0F624AF8");
 
-                // entity.HasOne(d => d.StoreFront)
-                //     .WithMany(p => p.OrderPlacements)
-                //     .HasForeignKey(d => d.StoreFrontId)
-                //     .HasConstraintName("FK__OrderPlac__Store__0E6E26BF");
+                entity.HasOne(d => d.StoreFront)
+                    .WithMany(p => p.OrderPlacement)
+                    .HasForeignKey(d => d.StoreFrontId)
+                    .HasConstraintName("FK__OrderPlac__Store__0E6E26BF");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -133,15 +133,15 @@ namespace CRUSDL
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ListOfOrders)
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasColumnName("List_of_Orders");
+                // entity.Property(e => e.ListOfOrders)
+                //     .HasMaxLength(100)
+                //     .IsUnicode(false)
+                //     .HasColumnName("List_of_Orders");
 
-                entity.Property(e => e.ListOfProducts)
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasColumnName("List_of_Products");
+                // entity.Property(e => e.ListOfProducts)
+                //     .HasMaxLength(100)
+                //     .IsUnicode(false)
+                //     .HasColumnName("List_of_Products");
 
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)

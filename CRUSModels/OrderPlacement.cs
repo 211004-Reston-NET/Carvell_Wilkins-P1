@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CRUSModels
 {
@@ -8,19 +9,30 @@ namespace CRUSModels
     // The orders contain information about customer orders.
     {
         private List<LineItem> _lineItems = new List<LineItem>();
-        public int OrderId {get; set;}
-        public int StoreFrontId {get;set;}
-
-        public int ProductId {get;set;}
+        private List<Product> _product;
+        public List<Product> Product
+        {
+            get { return _product; }
+            set { _product = value; }
+        }
         
+       
+       [Key]
+        public int OrderId {get; set;}
+        
+        public int StoreFrontId {get;set;}
+        
+        public int ProductId {get;set;}
+                
         private int _customerId { get; set; }
+        public Customer Customer {get; set;}
 
      
         
         private int _totalPrice;
 
-        public Customer Customer {get; set;}
-        public OrderPlacement orderPlacement {get;set;}
+        
+       // public OrderPlacement orderPlacement {get;set;}
         public StoreFront StoreFront {get;set;}
         public List<LineItem> LineItems {get;set;}
         public Product product {get;set;}

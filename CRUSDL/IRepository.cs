@@ -30,6 +30,7 @@ namespace CRUSDL
         /// <param name="p_customer">The Paramater is the customre that will be added</param>
         /// <returns>Will return the customer that gets added</returns>
         Customer AddCustomer(Customer p_customer);
+        Product AddProduct(Product p_product);
 
         OrderPlacement AddOrder(OrderPlacement p_orderPlacement);
         List<StoreFront> GetAllStoreFront();
@@ -53,7 +54,7 @@ namespace CRUSDL
 
         //this is going to get a list of products from the database
 
-        List<Product> GetAllProducts();
+        List<Product> GetAllProduct();
 
         ///This will get us a list of orders that was selected by the customer
         OrderPlacement PlaceOrder (Customer p_customer, OrderPlacement p_order);

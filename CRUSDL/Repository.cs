@@ -46,6 +46,11 @@ namespace CRUSDL
             throw new NotImplementedException();
         }
 
+        public Product AddProduct(Product p_product)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Clothing> GetAllClothing()
         {
             //File class will just read everything in the Resturant.json and put it in a string
@@ -145,7 +150,7 @@ namespace CRUSDL
             throw new NotImplementedException();
         }
 
-        public List<Product> GetAllProducts()
+        public List<Product> GetAllProduct()
         {
             throw new NotImplementedException();
         }

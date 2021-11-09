@@ -1,10 +1,10 @@
-using CRUSModels;
+﻿using CRUSModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RRWebUI.Models
+namespace CRUSWebUI.Models
 {
     public class CustomerVM
     {
@@ -21,4 +21,3 @@ namespace RRWebUI.Models
         public string Address { get; set; }
     }
 }
-

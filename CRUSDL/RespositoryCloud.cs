@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Model = CRUSModels;
-using Entity = CRUSDL;
+using CRUSDL;
 using CRUSModels;
 using System.Linq;
 
@@ -8,8 +8,8 @@ namespace CRUSDL
 {
     public class RepositoryCloud : IRepository
     {
-        private Entity.ClothesRUSdemoContext _context;
-        public RepositoryCloud(Entity.ClothesRUSdemoContext p_context)
+        private ClothesRUSdemoContext _context;
+        public RepositoryCloud(ClothesRUSdemoContext p_context)
         {
             _context = p_context;
         }
@@ -167,7 +167,7 @@ namespace CRUSDL
             throw new System.NotImplementedException();
         }
 
-        List<Product> IRepository.GetAllProducts()
+        List<Product> IRepository.GetAllProduct()
         {
             throw new System.NotImplementedException();
         }

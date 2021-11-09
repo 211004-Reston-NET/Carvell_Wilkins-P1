@@ -9,7 +9,7 @@ using CRUSModels;
 namespace CRUSModels
 {
     public class TestTable
-    { [Key]
+    { 
         public int  Id { get; set; }
     }
 }
