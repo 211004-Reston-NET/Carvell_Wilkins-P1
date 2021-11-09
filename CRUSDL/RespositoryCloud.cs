@@ -68,8 +68,9 @@ namespace CRUSDL
             //      Description= LineItems.Description,
             //      ProductId = LineItems.ProductId, 
             //      Price= (int)LineItems.Price, 
-            //      Quantity= LineItems.Quantity              
-                  return _context.LineItems.ToList();
+            //      Quantity= LineItems.Quantity    
+                return null;          
+               //  return _context.LineItems.ToList();
             // } 
             //  ).ToList();
         }

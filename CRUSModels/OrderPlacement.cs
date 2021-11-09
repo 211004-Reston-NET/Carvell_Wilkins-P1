@@ -8,7 +8,7 @@ namespace CRUSModels
     public class OrderPlacement
     // The orders contain information about customer orders.
     {
-        private List<LineItem> _lineItems = new List<LineItem>();
+        // private List<LineItem> _lineItems = new List<LineItem>();
         private List<Product> _product;
         public List<Product> Product
         {
@@ -22,10 +22,10 @@ namespace CRUSModels
         
         public int StoreFrontId {get;set;}
         
-        public int ProductId {get;set;}
+        // public int ProductId {get;set;}
                 
-        private int _customerId { get; set; }
-        public Customer Customer {get; set;}
+        public int CustomerId { get; set; }
+        
 
      
         
@@ -33,23 +33,12 @@ namespace CRUSModels
 
         
        // public OrderPlacement orderPlacement {get;set;}
-        public StoreFront StoreFront {get;set;}
-        public List<LineItem> LineItems {get;set;}
-        public Product product {get;set;}
+        public virtual StoreFront StoreFront {get;set;}
+        // public List<LineItem> LineItems {get;set;}
+        // public Product product {get;set;}
 
         
-        public int CustomerId
-        {
-            get
-            {
-                return _customerId;
-            }
-            set
-            {
-                _customerId =value;
-            }
-
-        }
+       public virtual Customer Customer { get; set; }
        
         public int TotalPrice
         {

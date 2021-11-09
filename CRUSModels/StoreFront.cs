@@ -14,8 +14,8 @@ namespace CRUSModels
         public string Description { get; set; }
         public string Address {get;set;}
 
-        public String ListOfProducts {get;set;}
-        public String ListOfOrders {get;set;}
+        // public String ListOfProducts {get;set;}
+        // public String ListOfOrders {get;set;}
 
         private List<OrderPlacement> _orderPlacement;
         public List<Product> Products {get;set;}

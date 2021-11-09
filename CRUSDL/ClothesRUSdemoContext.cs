@@ -19,7 +19,7 @@ namespace CRUSDL
         }
         public virtual DbSet<TestTable> TestTables { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<LineItem> LineItems { get; set; }
+        //public virtual DbSet<LineItem> LineItems { get; set; }
         public virtual DbSet<OrderPlacement> OrderPlacements { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<StoreFront> StoreFronts { get; set; }
@@ -55,7 +55,7 @@ namespace CRUSDL
                     .ValueGeneratedNever()
                     .HasColumnName("LineItem_ID");
 
-                entity.Property(e => e.OrderId).HasColumnName("Order_ID");
+                // entity.Property(e => e.OrderId).HasColumnName("Order_ID");
 
                 entity.Property(e => e.ProductId).HasColumnName("Product_ID");
 
@@ -81,7 +81,7 @@ namespace CRUSDL
 
                 entity.Property(e => e.CustomerId).HasColumnName("Customer_ID");
 
-                entity.Property(e => e.ProductId).HasColumnName("Product_ID");
+                //entity.Property(e => e.).HasColumnName("Product_ID");
 
                 entity.Property(e => e.StoreFrontId).HasColumnName("StoreFront_ID");
 
@@ -90,6 +90,7 @@ namespace CRUSDL
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.orderPlacements)
                     .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.NoAction)
                     .HasConstraintName("FK__OrderPlac__Custo__10566F31");
 
                 // entity.HasOne(d => d.Product)
@@ -100,6 +101,7 @@ namespace CRUSDL
                 entity.HasOne(d => d.StoreFront)
                     .WithMany(p => p.OrderPlacement)
                     .HasForeignKey(d => d.StoreFrontId)
+                    .OnDelete(DeleteBehavior.NoAction)
                     .HasConstraintName("FK__OrderPlac__Store__0E6E26BF");
             });
 
@@ -109,7 +111,7 @@ namespace CRUSDL
 
                 entity.Property(e => e.ProductId).HasColumnName("Product_ID");
 
-                entity.Property(e => e.LineItemId).HasColumnName("LineItem_ID");
+                //entity.Property(e => e.LineItemId).HasColumnName("LineItem_ID");
 
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
@@ -120,6 +122,7 @@ namespace CRUSDL
                 entity.HasOne(d => d.StoreFront)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.StoreFrontId)
+                    .OnDelete(DeleteBehavior.NoAction)
                     .HasConstraintName("FK__Product__StoreFr__114A936A");
             });
 

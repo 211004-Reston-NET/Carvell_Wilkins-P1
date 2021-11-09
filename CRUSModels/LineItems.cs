@@ -13,7 +13,7 @@ namespace CRUSModels
         public int _orderId;
 
         public string Product {get; set;}
-        public string OrderPlacement {get;set;}
+        // public string OrderPlacement {get;set;}
 
 
     
