@@ -177,6 +177,21 @@ namespace CRUSDL
         {
             throw new System.NotImplementedException();
         }
+
+        public List<OrderPlacement> GetOrders(string p_order)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public OrderPlacement DeleteOrderPlacement(OrderPlacement p_orderPlacement)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<OrderPlacement> GetOrder()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
 

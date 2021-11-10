@@ -51,6 +51,11 @@ namespace CRUSDL
             throw new NotImplementedException();
         }
 
+        public OrderPlacement DeleteOrderPlacement(OrderPlacement p_orderPlacement)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Clothing> GetAllClothing()
         {
             //File class will just read everything in the Resturant.json and put it in a string
@@ -173,6 +178,16 @@ namespace CRUSDL
         }
 
         public List<StoreFront> GetAllStoreFrontbylocation(string location)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<OrderPlacement> GetOrder()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<OrderPlacement> GetOrders(string p_order)
         {
             throw new NotImplementedException();
         }

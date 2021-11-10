@@ -40,10 +40,10 @@ namespace CRUSBL
         {
             //if (p_orderPlacement.OrderId == null || p_orderPlacement.CustomerId == null)
             {
-                throw new Exception("You must have a value in all of the properties of the customeraurant class");
+                //throw new Exception("You must have a value in all of the properties of the customeraurant class");
             }
 
-           // return _repo.AddOrder(p_orderPlacement);
+           return _repo.AddOrder(p_orderPlacement);
         }
 
         public List<Customer> GetAllCustomer()
@@ -57,44 +57,91 @@ namespace CRUSBL
 
             return listOfCustomer;
         }
+            public List<OrderPlacement> GetOrder()
+            
+        {
+            //if (p_orderPlacement.OrderId == null || p_orderPlacement.CustomerId == null)
+            {
+                //throw new Exception("You must have a value in all of the properties of the customeraurant class");
+            }
 
+           return _repo.GetOrder();
+        }
+
+
+        
         public List<Customer> GetCustomer(string p_name)
         {
-            List<Customer> listOfCustomer = _repo.GetAllCustomer();
-            
-            //Select method will give a list of boolean if the condition was true/false
-            //Where method will give the actual element itself based on some condition
-            //ToList method will convert into List that our method currently needs to return.
-            //ToLower will lowercase the string to make it not case sensitive
-            return listOfCustomer.Where(rest => rest.Name.ToLower().Contains(p_name.ToLower())).ToList();
-        }
-
-        public List<OrderPlacement> GetOrders(string p_order)
-        {
-            // List<Order> listOfOrder = _repo.GetAllOrders();
-            
-            // //Select method will give a list of boolean if the condition was true/false
-            // //Where method will give the actual element itself based on some condition
-            // //ToList method will convert into List that our method currently needs to return.
-            // //ToLower will lowercase the string to make it not case sensitive
-            // return listOfOrder.Where(rest => rest.LineItems().Contains(p_order.ToLower())).ToList();
-            throw new System.NotImplementedException(); //changed 11/1. may need to change back
-        }
-
-        public Customer GetSingleCustomer(string p_name, string p_email)
-        {
-            List<Customer> listOfCustomers = _repo.GetAllCustomer();
-            return listOfCustomers.FirstOrDefault(cust => cust.Name == p_name && cust.Email == p_email);
+            throw new NotImplementedException();
         }
 
         public OrderPlacement OrderPlacement(Customer p_customer, OrderPlacement p_order)
         {
-            //  if (p_productID == null || p_customer.Email == null || p_customer.Address == null)
+            throw new NotImplementedException();
+        }
+
+        public List<OrderPlacement> GetOrders()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Customer GetSingleCustomer(string p_name, string p_email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public OrderPlacement DeleteOrderPlacement(OrderPlacement p_orderPlacement)
+        {
+            throw new NotImplementedException();
+        }
+
+        //Maybe my business operation needs to capitalize every name of a restaurant
+       // List<OrderPlacement> listOfOrder = _repo.GetOrder();
+            // for (int i = 0; i < listOfOrders.Count; i++)
             // {
-            //     throw new Exception("You must have a value in all of the properties of the customeraurant class");
+            //     listOfOrder[i].Name = listOfOrder[i].Name.ToLower(); 
             // }
 
-            return _repo.PlaceOrder(p_customer, p_order);
-        }
+            //return listOfOrder;
+        } 
+
+        // ****public List<Customer> GetCustomer(string p_name)
+        // {
+        //     List<Customer> listOfCustomer = _repo.GetAllCustomer();
+            
+        //     //Select method will give a list of boolean if the condition was true/false
+        //     //Where method will give the actual element itself based on some condition
+        //     //ToList method will convert into List that our method currently needs to return.
+        //     //ToLower will lowercase the string to make it not case sensitive
+        //     return listOfCustomer.Where(rest => rest.Name.ToLower().Contains(p_name.ToLower())).ToList();
+        // }
+
+        // ****public List<OrderPlacement> GetOrders(string p_order)
+        // {
+        //     // List<Order> listOfOrder = _repo.GetAllOrders();
+            
+        //     // //Select method will give a list of boolean if the condition was true/false
+        //     // //Where method will give the actual element itself based on some condition
+        //     // //ToList method will convert into List that our method currently needs to return.
+        //     // //ToLower will lowercase the string to make it not case sensitive
+        //     // return listOfOrder.Where(rest => rest.LineItems().Contains(p_order.ToLower())).ToList();
+        //     throw new System.NotImplementedException(); //changed 11/1. may need to change back
+        // }
+
+        // *****public Customer GetSingleCustomer(string p_name, string p_email)
+        // {
+        //     List<Customer> listOfCustomers = _repo.GetAllCustomer();
+        //     return listOfCustomers.FirstOrDefault(cust => cust.Name == p_name && cust.Email == p_email);
+        // }
+
+        // *****public OrderPlacement OrderPlacement(Customer p_customer, OrderPlacement p_order)
+        // {
+        //     //  if (p_productID == null || p_customer.Email == null || p_customer.Address == null)
+        //     // {
+        //     //     throw new Exception("You must have a value in all of the properties of the customeraurant class");
+        //     // }
+
+        //     return _repo.PlaceOrder(p_customer, p_order);
+        // }
     }
-}
+

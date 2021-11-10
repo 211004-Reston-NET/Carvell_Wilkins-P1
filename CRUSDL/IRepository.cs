@@ -61,6 +61,15 @@ namespace CRUSDL
 
         Product GetProductsByItemId(int p_ItemId);
 
-       // List<OrderPlacement> GetAllOrder();
+        List<OrderPlacement> GetOrder();
+
+        // List<OrderPlacement> GetAllOrder();
+
+        /// <summary>
+        /// It will delete a restaurant from the database
+        /// </summary>
+        /// <param name="p_rest">This is the restaurant it will delete</param>
+        /// <returns>It returns the deleted restaurant</returns>
+        OrderPlacement DeleteOrderPlacement(OrderPlacement p_orderPlacement);
     }
 }
