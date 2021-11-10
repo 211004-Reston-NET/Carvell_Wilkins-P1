@@ -185,13 +185,22 @@ namespace CRUSDL
 
         public OrderPlacement DeleteOrderPlacement(OrderPlacement p_orderPlacement)
         {
-            throw new System.NotImplementedException();
+           _context.OrderPlacements.Remove(p_orderPlacement);
+           _context.SaveChanges();
+           return p_orderPlacement;
         }
-
+        public Customer DeleteCustomer(Customer p_customer)
+        {
+           _context.Customers.Remove(p_customer);
+           _context.SaveChanges();
+           return p_customer;
+        }
         public List<OrderPlacement> GetOrder()
         {
             throw new System.NotImplementedException();
         }
+
+      
     }
 }
 

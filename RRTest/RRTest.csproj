@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CRUSModels\CRUSModels.csproj" />
     <ProjectReference Include="..\CRUSDL\CRUSDL.csproj" />
+    <ProjectReference Include="..\CRUSBL\CRUSBL.csproj" />
   </ItemGroup>
 
 </Project>

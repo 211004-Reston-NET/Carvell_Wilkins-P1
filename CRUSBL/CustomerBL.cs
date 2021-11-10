@@ -92,18 +92,23 @@ namespace CRUSBL
 
         public OrderPlacement DeleteOrderPlacement(OrderPlacement p_orderPlacement)
         {
-            throw new NotImplementedException();
+            return _repo.DeleteOrderPlacement(p_orderPlacement);
+        }
+
+        public Customer DeleteCustomer(Customer p_customer)
+        {
+            return _repo.DeleteCustomer(p_customer);
         }
 
         //Maybe my business operation needs to capitalize every name of a restaurant
-       // List<OrderPlacement> listOfOrder = _repo.GetOrder();
-            // for (int i = 0; i < listOfOrders.Count; i++)
-            // {
-            //     listOfOrder[i].Name = listOfOrder[i].Name.ToLower(); 
-            // }
+        // List<OrderPlacement> listOfOrder = _repo.GetOrder();
+        // for (int i = 0; i < listOfOrders.Count; i++)
+        // {
+        //     listOfOrder[i].Name = listOfOrder[i].Name.ToLower(); 
+        // }
 
-            //return listOfOrder;
-        } 
+        //return listOfOrder;
+    } 
 
         // ****public List<Customer> GetCustomer(string p_name)
         // {

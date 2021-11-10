@@ -8,7 +8,10 @@ namespace CRUSWebUI.Models
 {
     public class StoreFrontVM
     {
+        public StoreFrontVM()
+        {
 
+        }
         public StoreFrontVM(StoreFront p_rest)
         {
             

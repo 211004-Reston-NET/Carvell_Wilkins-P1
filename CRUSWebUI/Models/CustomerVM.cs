@@ -8,6 +8,11 @@ namespace CRUSWebUI.Models
 {
     public class CustomerVM
     {
+        public CustomerVM()
+        {
+
+        }
+
         public CustomerVM(Customer p_rest)
         {
             this.CustomerId = p_rest.CustomerId;

@@ -8,6 +8,10 @@ namespace CRUSWebUI.Models
 {
     public class ProductVM
     {
+        public ProductVM()
+        {
+
+        }
 
         public ProductVM(Product p_rest)
         {

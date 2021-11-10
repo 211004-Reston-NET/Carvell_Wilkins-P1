@@ -51,6 +51,11 @@ namespace CRUSDL
             throw new NotImplementedException();
         }
 
+        public Customer DeleteCustomer(Customer p_customer)
+        {
+            throw new NotImplementedException();
+        }
+
         public OrderPlacement DeleteOrderPlacement(OrderPlacement p_orderPlacement)
         {
             throw new NotImplementedException();

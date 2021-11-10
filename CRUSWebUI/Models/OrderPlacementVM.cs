@@ -9,6 +9,10 @@ namespace CRUSWebUI.Models
 {
     public class OrderPlacementVM
     {
+        public OrderPlacementVM() 
+        {
+
+        }
         public OrderPlacementVM(OrderPlacement p_rest)
         {
             this.OrderId = p_rest.OrderId;

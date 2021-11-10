@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using CRUSDL;
 using CRUSModels;
+using CRUSBL;
 using Xunit;
+
 
 namespace RRTest
 {
@@ -65,52 +67,73 @@ namespace RRTest
             }
         }
 
-         [Fact]
-         public void GetAllStoreFrontShouldReturnLineItems()
+         
+
+[Fact]
+        public void DeleteOrderPlacementShouldDeleteOrderPlacement()
         {
+            using (var context = new ClothesRUSDemoContext(_options))
+            {
+                //Arrange
+                IRepository repo = new RespositoryCloud(context);
+                OrderPlacement rest = context.OrderPlacement.Find(1);
+
+                //Act
+                repo.DeleteOrderPlacement(rest);
+            }
+
             using (var context = new ClothesRUSdemoContext(_options))
             {
-                 //Arrange
-                IRepository repo = new RepositoryCloud(context);
+                //Assert
+                List<OrderPlacement> listOfOrderPlacement = context.OrderPlacement.ToList();
 
-                 //Act
-                 List<LineItem> test = repo.GetAllLineItems();
-
-                 //Assert
-                 Assert.Equal(2, test.Count);
-                 Assert.Equal("3", test[0]._quantity);
+                Assert.Single(listOfOrderPlacement);
+                Assert.Null(context.OrderPlacement.Find(1));
+                
             }
         }
-        // public void AddCustomerShouldAddACustomer()
-        // {
-        //     //First using block will add a restaruant
-        //     using (var context = new ClothesRUSdemoContext(_options))
-        //     {
-        //          //Arrange
-        //         IRepository repo = new RepositoryCloud(context);
-        //         Customer addedCustomer = new Customer
-        //         {
-        //             Name = " My Dog",
-        //             Address = "Detroit",
-        //             Email = "Detroit@yahoo.com"
-        //         };
 
-        //          //Act
-        //          repo.AddCustomer(addedCustomer);
-        //     }
+        [Fact]
+        public void GetRestuarantByIdShouldWork()
+        {
+            using (var context = new RRDatabaseContext(_options))
+            {
+                //Arrange
+                IRepository repo = new RespositoryCloud(context);
 
-        //     //Second using block will find that restaurant and see if it is similar to what we added
-        //     //Assert
-        //     using (ClothesRUSdemoContext contexts = new ClothesRUSdemoContext(_options))
-        //     {
-        //         Customer result = contexts.Customers.Find(3);
+                //Act
+                Restaurant foundRest = repo.GetRestaurantById(1);
 
-        //         Assert.NotNull(result);
-        //         Assert.Equal("My Dog", result.Name);
-        //         Assert.Equal("Detroit", result.Address);
-        //         Assert.Equal("Detroit@yahoo.com", result.Email);
-        //     }
-        // }
+                //Assert
+                Assert.Equal("Stephen Restaurant", foundRest.Name);
+            }
+        }
+
+        [Fact]
+        public void DeleteRestaurantShouldDeleteCustomer()
+        {
+            using (var context = new ClothesRUSDemoContext(_options))
+            {
+                //Arrange
+                IRepository repo = new RepositoryCloud(context);
+                Customer rest = context.Customer.Find(1);
+
+                
+
+                //Act
+                repo.Customer(rest);
+            }
+
+            using (var context = new ClothesRUSdemoContext(_options))
+            {
+                //Assert
+                List<Customer> listOfCustomer = context.Customer.ToList();
+
+                Assert.Single(listOfCustomer);
+                Assert.Null(context.Customer.Find(1));
+                
+            }
+        }
 
         private void Seed()
         {
@@ -143,27 +166,27 @@ namespace RRTest
                    
                 );
 
-                 context.LineItems.AddRange
-                (
-                    new LineItem
-                    {
-                        _quantity = "3",
-                        // Address = "Houston",
+                //  context.LineItems.AddRange
+                // (
+                //     new LineItem
+                //     {
+                //         _quantity = "3",
+                //         // Address = "Houston",
                         
                         
                        
-                    },
-                  new LineItem
-                    {
-                        _quantity = "4",
-                        // Address = "Housto",
+                //     },
+                //   new LineItem
+                //     {
+                //         _quantity = "4",
+                //         // Address = "Housto",
                         
                         
                        
-                    }
+                //     }
                   
                    
-                );
+                
 
                 context.SaveChanges();
             }

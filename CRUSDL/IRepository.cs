@@ -71,5 +71,6 @@ namespace CRUSDL
         /// <param name="p_rest">This is the restaurant it will delete</param>
         /// <returns>It returns the deleted restaurant</returns>
         OrderPlacement DeleteOrderPlacement(OrderPlacement p_orderPlacement);
+        Customer DeleteCustomer(Customer p_customer);
     }
 }
