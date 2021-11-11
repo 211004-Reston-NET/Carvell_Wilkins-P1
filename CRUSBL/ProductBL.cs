@@ -85,6 +85,11 @@ namespace CRUSBL
         {
             throw new NotImplementedException();
         }
+
+        public List<Product> GetAllProductByProductID(int p_prodcutId)
+        {
+            return _repo.GetAllProductByProductID(p_prodcutId);
+        }
     }
 }
 

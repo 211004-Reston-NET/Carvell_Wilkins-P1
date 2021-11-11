@@ -165,6 +165,11 @@ namespace CRUSDL
             throw new NotImplementedException();
         }
 
+        public List<Product> GetAllProductByProductID(int p_prodcutId)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Review> GetAllReview()
         {
             _jsonString = File.ReadAllText(_filepath+"Review.json");
@@ -183,6 +188,11 @@ namespace CRUSDL
         }
 
         public List<StoreFront> GetAllStoreFrontbylocation(string location)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Customer GetCustomerById(int p_customer)
         {
             throw new NotImplementedException();
         }

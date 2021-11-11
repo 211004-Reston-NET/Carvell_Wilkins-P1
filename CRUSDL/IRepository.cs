@@ -72,5 +72,8 @@ namespace CRUSDL
         /// <returns>It returns the deleted restaurant</returns>
         OrderPlacement DeleteOrderPlacement(OrderPlacement p_orderPlacement);
         Customer DeleteCustomer(Customer p_customer);
+
+        Customer GetCustomerById(int p_customer);
+        List<Product> GetAllProductByProductID(int p_prodcutId);
     }
 }

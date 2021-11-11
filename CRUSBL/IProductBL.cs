@@ -11,5 +11,7 @@ namespace CRUSBL
         List<Product> getAllProduct(); 
         //CategoryMenu(string p_category);
         List<Product> getProduct( string p_product);
+
+        List<Product> GetAllProductByProductID(int p_prodcutId);
     }
 }

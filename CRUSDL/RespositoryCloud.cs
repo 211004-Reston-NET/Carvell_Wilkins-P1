@@ -199,8 +199,15 @@ namespace CRUSDL
         {
             throw new System.NotImplementedException();
         }
+         public Customer GetCustomerById(int p_customerId)
+        {
+            return _context.Customers.Find(p_customerId);
+        }
 
-      
+        public List<Product> GetAllProductByProductID(int p_prodcutId)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
 

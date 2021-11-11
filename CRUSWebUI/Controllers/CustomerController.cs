@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using CRUSBL;
 using CRUSModels;
+using CRUSWebUI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using CRUSWebUI.Models;
 
 namespace CRUSWebUI.Controllers
 {
@@ -86,18 +83,22 @@ namespace CRUSWebUI.Controllers
         }
 
         // GET: RestaurantController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int CustomerId)
         {
-            return View();
+            return View (new CustomerVM(_restBL.GetCustomerById( CustomerId)));
+
+
         }
 
         // POST: RestaurantController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int CustomerId, IFormCollection collection)
         {
             try
             {
+                Customer toBeDeleted = _restBL.GetCustomerById(CustomerId);
+                _restBL.DeleteCustomer(toBeDeleted);
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -51,6 +51,8 @@ namespace CRUSBL
         /// <returns>It returns the deleted restaurant</returns>
         OrderPlacement DeleteOrderPlacement(OrderPlacement p_orderPlacement);
 
+        Customer GetCustomerById(int p_customerId);
+
         Customer DeleteCustomer(Customer p_customer);
 
 

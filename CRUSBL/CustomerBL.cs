@@ -100,53 +100,25 @@ namespace CRUSBL
             return _repo.DeleteCustomer(p_customer);
         }
 
-        //Maybe my business operation needs to capitalize every name of a restaurant
-        // List<OrderPlacement> listOfOrder = _repo.GetOrder();
-        // for (int i = 0; i < listOfOrders.Count; i++)
-        // {
-        //     listOfOrder[i].Name = listOfOrder[i].Name.ToLower(); 
-        // }
-
-        //return listOfOrder;
-    } 
-
-        // ****public List<Customer> GetCustomer(string p_name)
-        // {
-        //     List<Customer> listOfCustomer = _repo.GetAllCustomer();
+      // ***
+        public Customer GetCustomerById(int p_customerId)
+       
+           {
+            Customer custFound = _repo.GetCustomerById( p_customerId );
             
-        //     //Select method will give a list of boolean if the condition was true/false
-        //     //Where method will give the actual element itself based on some condition
-        //     //ToList method will convert into List that our method currently needs to return.
-        //     //ToLower will lowercase the string to make it not case sensitive
-        //     return listOfCustomer.Where(rest => rest.Name.ToLower().Contains(p_name.ToLower())).ToList();
-        // }
 
-        // ****public List<OrderPlacement> GetOrders(string p_order)
-        // {
-        //     // List<Order> listOfOrder = _repo.GetAllOrders();
             
-        //     // //Select method will give a list of boolean if the condition was true/false
-        //     // //Where method will give the actual element itself based on some condition
-        //     // //ToList method will convert into List that our method currently needs to return.
-        //     // //ToLower will lowercase the string to make it not case sensitive
-        //     // return listOfOrder.Where(rest => rest.LineItems().Contains(p_order.ToLower())).ToList();
-        //     throw new System.NotImplementedException(); //changed 11/1. may need to change back
-        // }
+            
 
-        // *****public Customer GetSingleCustomer(string p_name, string p_email)
-        // {
-        //     List<Customer> listOfCustomers = _repo.GetAllCustomer();
-        //     return listOfCustomers.FirstOrDefault(cust => cust.Name == p_name && cust.Email == p_email);
-        // }
+            if (custFound == null)
+            {
+                throw new Exception("Customer was not found!");
+            }
 
-        // *****public OrderPlacement OrderPlacement(Customer p_customer, OrderPlacement p_order)
-        // {
-        //     //  if (p_productID == null || p_customer.Email == null || p_customer.Address == null)
-        //     // {
-        //     //     throw new Exception("You must have a value in all of the properties of the customeraurant class");
-        //     // }
+            return custFound;
+        }
+        }
 
-        //     return _repo.PlaceOrder(p_customer, p_order);
-        // }
+        
     }
 
