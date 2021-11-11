@@ -101,10 +101,10 @@ namespace CRUSBL
         }
 
       // ***
-        public Customer GetCustomerById(int p_customerId)
+        public Customer GetCustomerById(int CustomerId)
        
            {
-            Customer custFound = _repo.GetCustomerById( p_customerId );
+            Customer custFound = _repo.GetCustomerById( CustomerId );
             
 
             

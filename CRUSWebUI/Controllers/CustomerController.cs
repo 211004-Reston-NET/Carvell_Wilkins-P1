@@ -56,13 +56,13 @@ namespace CRUSWebUI.Controllers
         }
 
         // GET: RestaurantController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int CustomerId)
         {
             return View();
         }
 
         // GET: CustomerController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int CustomerId)
         {
             return View();
         }
@@ -70,7 +70,7 @@ namespace CRUSWebUI.Controllers
         // POST: CustomerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int CustomerId, IFormCollection collection)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace CRUSWebUI.Controllers
         // GET: RestaurantController/Delete/5
         public ActionResult Delete(int CustomerId)
         {
-            return View (new CustomerVM(_restBL.GetCustomerById( CustomerId)));
+            return View (new CustomerVM(_restBL.GetCustomerById(CustomerId)));
 
 
         }
