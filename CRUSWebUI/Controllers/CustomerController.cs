@@ -90,6 +90,21 @@ namespace CRUSWebUI.Controllers
 
         }
 
+        public ActionResult Login(CustomerVM p_customerVM)
+        {
+            ViewData.Add("Customer Name", SingletonVM.customer.Name);
+            ViewData.Add("Customer Email", SingletonVM.customer.Email);
+            if (ModelState.IsValid)
+            {
+                SingletonVM.customer = _restBL.GetSingleCustomer(p_customerVM.Name, p_customerVM.Email);
+                return RedirectToAction(nameof(Index));
+
+
+            }
+            return View();
+        }
+
+
         // POST: RestaurantController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -106,5 +121,53 @@ namespace CRUSWebUI.Controllers
                 return View();
             }
         }
+
+        
+
+
+           
+            
+        }
     }
-}
+
+
+
+
+
+
+
+
+
+
+
+        //public IActionResult Details(int CustomerId)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+
+
+        //        string name = Name;
+        //        string email = Email;
+
+        //        Customer Login = new Customer();
+        //        try
+        //        {
+        //            Login = _restBL.GetCustomerById(p_customerId);
+        //            return RedirectToAction(nameof(Index);
+        //        catch (System.Exception)
+        //        {
+
+
+        //            return View();
+        //        }
+
+
+        //        CustomerVM x = new CustomerVM();
+        //        name = Login.Name;
+        //        email = Login.Email;
+
+
+
+
+        //        return RedirectToAction("ShoppingIndex", "StoreFront");
+        //    }
