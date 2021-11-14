@@ -43,6 +43,7 @@ namespace CRUSBL
         /// <param name="p_address"> customer address to search for </param>
         /// <returns> returns the customer from the database</returns>
         Customer GetSingleCustomer(string p_name, string p_email);
+        Customer GetACustomer(string p_name, string p_email);
 
         /// <summary>
         /// It will delete a restaurant from the database

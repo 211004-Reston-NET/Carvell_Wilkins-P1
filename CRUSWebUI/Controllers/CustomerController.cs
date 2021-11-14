@@ -9,7 +9,7 @@ namespace CRUSWebUI.Controllers
 {
     public class CustomerController : Controller
     {
-        private ICustomerBL _restBL;
+        public ICustomerBL _restBL;
         public CustomerController(ICustomerBL p_restBL)
         {
             _restBL = p_restBL;
@@ -21,15 +21,61 @@ namespace CRUSWebUI.Controllers
             //We got our list of restaurant from our business layer
             //We converted that Model restaurant into RestaurantVM using Select method
             //Finally we changed it to a List with ToList()
+
+            ViewData.Add("CustomerName", SingletonVM.customer.Name);
+            ViewData.Add("CustomerEmail", SingletonVM.customer.Email);
             return View(_restBL.GetAllCustomer()
                         .Select(rest => new CustomerVM(rest))
                         .ToList()
             );
         }
 
-        [HttpGet]
+        public ActionResult Login(int CustomerId) /*Added this 11/13 4pm */
+        {
+           
+            {
+                return View(new CustomerVM(_restBL.GetCustomerById(CustomerId)));
+
+            }
+          
+        }
+
+        
+        public ActionResult Detailsprime(int CustomerId)
+
+        {
+            {
+
+
+                return View(_restBL.GetAllCustomer()
+                            .Select(rest => new CustomerVM(rest))
+                            .ToList()
+                );
+            }
+        }
+
+            [HttpGet]
         public IActionResult Create()
         {
+            return View();
+        }
+
+        public ActionResult Details()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details(CustomerVM p_customerVM)
+        {
+            ViewBag.CustomerName = SingletonVM.customer.Name;
+            ViewBag.CustomerAddress = SingletonVM.customer.Email;
+            if (ModelState.IsValid)
+            {
+                SingletonVM.customer = _restBL.GetACustomer(p_customerVM.Name, p_customerVM.Email);
+                return RedirectToAction(nameof(Index));
+            }
             return View();
         }
 
@@ -55,10 +101,46 @@ namespace CRUSWebUI.Controllers
             return View();
         }
 
+
+        
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Details(CustomerVM p_customerVM)
+        //{
+        //    ViewBag.CustomerName = SingletonVM.customer.Name;
+        //    ViewBag.CustomerAddress = SingletonVM.customer.Address;
+        //    if (ModelState.IsValid)
+        //    {
+        //        SingletonVM.customer = _restBL.GetACustomer(p_customerVM.Name, p_customerVM.Email);
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View();
+        //}
         // GET: RestaurantController/Details/5
-        public ActionResult Details(int CustomerId)
+        public ActionResult Details1(int CustomerId) /*Commented this out and added this above the Http post*/
+
         {
-            return View();
+                {
+
+
+                return View(_restBL.GetAllCustomer()
+                            .Select(rest => new CustomerVM(rest))
+                            .ToList()
+                );
+                }
+                //ViewData.Add("CustomerName", SingletonVM.customer.Name);
+                //ViewData.Add("CustomerId", SingletonVM.customer.CustomerId);
+                //if (ModelState.IsValid)
+                //{
+                //    SingletonVM.customer = _restBL.GetCustomerById(CustomerId);
+                //    return RedirectToAction(nameof(Details));
+
+
+                //}
+                //return View();
+            
+
+
+           /* return View(new CustomerVM(_restBL.GetCustomerById(CustomerId)))*/;
         }
 
         // GET: CustomerController/Edit/5
@@ -89,19 +171,27 @@ namespace CRUSWebUI.Controllers
 
 
         }
-
-        public ActionResult Login(CustomerVM p_customerVM)
+        
+        public ActionResult Login1(CustomerVM p_customerVM)
         {
-            ViewData.Add("Customer Name", SingletonVM.customer.Name);
-            ViewData.Add("Customer Email", SingletonVM.customer.Email);
+            ViewData.Add("CustomerName", SingletonVM.customer.Name);
+            ViewData.Add("CustomerEmail", SingletonVM.customer.Email);
             if (ModelState.IsValid)
             {
                 SingletonVM.customer = _restBL.GetSingleCustomer(p_customerVM.Name, p_customerVM.Email);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Login));
 
 
             }
             return View();
+        }
+
+        /*Recently changed below*/
+        public ActionResult Login2(int CustomerId) /*Changed this from login to login2 11/13/4pm*/
+        {
+            return View(new CustomerVM(_restBL.GetCustomerById(CustomerId)));
+
+
         }
 
 
@@ -139,35 +229,3 @@ namespace CRUSWebUI.Controllers
 
 
 
-
-        //public IActionResult Details(int CustomerId)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-
-
-        //        string name = Name;
-        //        string email = Email;
-
-        //        Customer Login = new Customer();
-        //        try
-        //        {
-        //            Login = _restBL.GetCustomerById(p_customerId);
-        //            return RedirectToAction(nameof(Index);
-        //        catch (System.Exception)
-        //        {
-
-
-        //            return View();
-        //        }
-
-
-        //        CustomerVM x = new CustomerVM();
-        //        name = Login.Name;
-        //        email = Login.Email;
-
-
-
-
-        //        return RedirectToAction("ShoppingIndex", "StoreFront");
-        //    }

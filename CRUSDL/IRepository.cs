@@ -30,6 +30,8 @@ namespace CRUSDL
         /// <param name="p_customer">The Paramater is the customre that will be added</param>
         /// <returns>Will return the customer that gets added</returns>
         Customer AddCustomer(Customer p_customer);
+
+        Customer GetSingleCustomer();
         Product AddProduct(Product p_product);
 
         OrderPlacement AddOrder(OrderPlacement p_orderPlacement);

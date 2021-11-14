@@ -9,6 +9,7 @@ namespace CRUSWebUI.Models
     public class SingletonVM
     {
         public static Customer customer = new Customer();
+        public static OrderPlacement orderPlacement = new OrderPlacement();
 
     }
 }

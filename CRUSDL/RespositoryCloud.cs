@@ -208,6 +208,11 @@ namespace CRUSDL
         {
             throw new System.NotImplementedException();
         }
+
+        public Customer GetSingleCustomer()
+        {
+           return _context.Customers.Find();
+        }
     }
 }
 

@@ -212,6 +212,11 @@ namespace CRUSDL
             throw new NotImplementedException();
         }
 
+        public Customer GetSingleCustomer()
+        {
+            throw new NotImplementedException();
+        }
+
         public OrderPlacement PlaceOrder(Customer p_customer, OrderPlacement p_order)
         {
             throw new NotImplementedException();

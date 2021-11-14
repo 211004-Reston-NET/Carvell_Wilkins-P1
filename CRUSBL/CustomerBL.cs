@@ -13,7 +13,7 @@ namespace CRUSBL
     /// </summary>
     public class CustomerBL :ICustomerBL
     {
-        private IRepository _repo;
+        public IRepository _repo;
         /// <summary>
         /// We are defining the dependencies this class needs to operate
         /// We do it this way because we can easily switch out which implementation details we will be using
@@ -87,7 +87,7 @@ namespace CRUSBL
 
         public Customer GetSingleCustomer(string p_name, string p_email)
         {
-            throw new NotImplementedException();
+            return _repo.GetSingleCustomer() ;
         }
 
         public OrderPlacement DeleteOrderPlacement(OrderPlacement p_orderPlacement)
@@ -117,7 +117,14 @@ namespace CRUSBL
 
             return custFound;
         }
+
+
+        public Customer GetACustomer(string p_name, string p_email)
+        {
+            List<Customer> listOfCustomer = _repo.GetAllCustomer();
+            return listOfCustomer.FirstOrDefault(cust => cust.Name.ToLower().Contains(p_name.ToLower()) && cust.Email.ToLower().Contains(p_email.ToLower()));
         }
+    }
 
         
     }
