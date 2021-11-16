@@ -10,6 +10,7 @@ namespace CRUSWebUI.Models
     {
         public static Customer customer = new Customer();
         public static OrderPlacement orderPlacement = new OrderPlacement();
-
+        public static Product product = new Product();
+        public static StoreFront storeFront = new StoreFront();
     }
 }

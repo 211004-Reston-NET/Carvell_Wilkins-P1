@@ -10,10 +10,10 @@ using CRUSWebUI.Models;
 
 namespace CRUSWebUI.Controllers
 {
-    public class OrderController : Controller
+    public class OrderPlacementController : Controller
     {
         private ICustomerBL _restBL;
-        public OrderController(ICustomerBL p_restBL)
+        public OrderPlacementController(ICustomerBL p_restBL)
         {
             _restBL = p_restBL;
         }

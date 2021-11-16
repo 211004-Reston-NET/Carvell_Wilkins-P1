@@ -34,7 +34,7 @@
                 <td>@Html.DisplayFor(modelItem => item.Description)</td>
                 <td>@Html.DisplayFor(modelItem => item.Address)</td>
                 <td>
-                    <button class="btn btn-primary">@Html.ActionLink("Products", "Index", "Product", new { p_id = item.StoreFrontId }, new { @style = "color: white" })</button>
+                    <button class="btn btn-primary">@Html.ActionLink("Add This StoreFront to your Order", "AddStoreFront", new { p_id = item.StoreFrontId }, new { @style = "color: white" })</button>
                 </td>
             </tr>
         }
