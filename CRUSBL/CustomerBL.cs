@@ -38,9 +38,9 @@ namespace CRUSBL
 
          public OrderPlacement AddOrder(OrderPlacement p_orderPlacement)
         {
-            //if (p_orderPlacement.OrderId == null || p_orderPlacement.CustomerId == null)
+            if (p_orderPlacement.Price == 0 || p_orderPlacement.CustomerId == 0 )
             {
-                //throw new Exception("You must have a value in all of the properties of the customeraurant class");
+                throw new Exception("You must have a value in all of the properties of the customeraurant class");
             }
 
            return _repo.AddOrder(p_orderPlacement);
@@ -123,6 +123,17 @@ namespace CRUSBL
         {
             List<Customer> listOfCustomer = _repo.GetAllCustomer();
             return listOfCustomer.FirstOrDefault(cust => cust.Name.ToLower().Contains(p_name.ToLower()) && cust.Email.ToLower().Contains(p_email.ToLower()));
+        }
+         public List<OrderPlacement> GetAllOrders()
+        {
+            //Maybe my business operation needs to capitalize every name of a restaurant
+            List<OrderPlacement> listOfOrders = _repo.GetAllOrders();
+            for (int i = 0; i < listOfOrders.Count; i++)
+            {
+                
+            }
+
+            return listOfOrders;
         }
     }
 

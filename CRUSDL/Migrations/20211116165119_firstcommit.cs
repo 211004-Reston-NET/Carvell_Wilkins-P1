@@ -64,31 +64,6 @@ namespace CRUSDL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderPlacement",
-                columns: table => new
-                {
-                    order_ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    StoreFront_ID = table.Column<int>(type: "int", nullable: false),
-                    Customer_ID = table.Column<int>(type: "int", nullable: false),
-                    Total_Price = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK__OrderPla__464665E1B7D4693B", x => x.order_ID);
-                    table.ForeignKey(
-                        name: "FK__OrderPlac__Custo__10566F31",
-                        column: x => x.Customer_ID,
-                        principalTable: "Customer",
-                        principalColumn: "Customer_ID");
-                    table.ForeignKey(
-                        name: "FK__OrderPlac__Store__0E6E26BF",
-                        column: x => x.StoreFront_ID,
-                        principalTable: "StoreFront",
-                        principalColumn: "StoreFront_ID");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Product",
                 columns: table => new
                 {
@@ -110,27 +85,34 @@ namespace CRUSDL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderPlacementProduct",
+                name: "OrderPlacement",
                 columns: table => new
                 {
-                    OrderPlacementsOrderId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false)
+                    order_ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StoreFront_ID = table.Column<int>(type: "int", nullable: false),
+                    Customer_ID = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderPlacementProduct", x => new { x.OrderPlacementsOrderId, x.ProductId });
+                    table.PrimaryKey("PK__OrderPla__464665E1B7D4693B", x => x.order_ID);
                     table.ForeignKey(
-                        name: "FK_OrderPlacementProduct_OrderPlacement_OrderPlacementsOrderId",
-                        column: x => x.OrderPlacementsOrderId,
-                        principalTable: "OrderPlacement",
-                        principalColumn: "order_ID",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK__OrderPlac__Custo__10566F31",
+                        column: x => x.Customer_ID,
+                        principalTable: "Customer",
+                        principalColumn: "Customer_ID");
                     table.ForeignKey(
-                        name: "FK_OrderPlacementProduct_Product_ProductId",
-                        column: x => x.ProductId,
+                        name: "FK__OrderPlac__Produ__0F624AF8",
+                        column: x => x.Price,
                         principalTable: "Product",
                         principalColumn: "Product_ID",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK__OrderPlac__Store__0E6E26BF",
+                        column: x => x.StoreFront_ID,
+                        principalTable: "StoreFront",
+                        principalColumn: "StoreFront_ID");
                 });
 
             migrationBuilder.CreateIndex(
@@ -139,14 +121,14 @@ namespace CRUSDL.Migrations
                 column: "Customer_ID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_OrderPlacement_Price",
+                table: "OrderPlacement",
+                column: "Price");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_OrderPlacement_StoreFront_ID",
                 table: "OrderPlacement",
                 column: "StoreFront_ID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderPlacementProduct_ProductId",
-                table: "OrderPlacementProduct",
-                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_StoreFront_ID",
@@ -160,19 +142,16 @@ namespace CRUSDL.Migrations
                 name: "LineItem");
 
             migrationBuilder.DropTable(
-                name: "OrderPlacementProduct");
+                name: "OrderPlacement");
 
             migrationBuilder.DropTable(
                 name: "TestTables");
 
             migrationBuilder.DropTable(
-                name: "OrderPlacement");
+                name: "Customer");
 
             migrationBuilder.DropTable(
                 name: "Product");
-
-            migrationBuilder.DropTable(
-                name: "Customer");
 
             migrationBuilder.DropTable(
                 name: "StoreFront");

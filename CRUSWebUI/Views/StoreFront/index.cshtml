@@ -19,7 +19,8 @@
     <br />
     
     <h1>@ViewData["CustomerName"]</h1>
-    <h1>@ViewData["CustomerEmail"]</h1>
+    <h1>@ViewData["StoreFront"]</h1>
+
 
     <table class="table table-striped table-hover">
         <tr>
@@ -35,6 +36,7 @@
                 <td>@Html.DisplayFor(modelItem => item.Address)</td>
                 <td>
                     <button class="btn btn-primary">@Html.ActionLink("Add This StoreFront to your Order", "AddStoreFront", new { p_id = item.StoreFrontId }, new { @style = "color: white" })</button>
+                    <button class="btn btn-danger">@Html.ActionLink("View Products", "Index", "Product", new { @style = "color: white;" })</button>
                 </td>
             </tr>
         }

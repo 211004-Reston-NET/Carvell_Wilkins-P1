@@ -5,9 +5,9 @@
 }
 
 @* This tells you that this view will expect to retrieve a list of RestaurantVM *@
-@model IEnumerable<CRUSWebUI.Models.CustomerVM>
+@model IEnumerable<CRUSWebUI.Models.ProductVM>
 
-    <h1 class="display-4">List of Customers</h1>
+    <h1 class="display-4">List of Product</h1>
     @*<br />
         <h1>@ViewBag["Customer Name"]</h1>
         <h1>@ViewBag["Customer Email"]</h1>*@
@@ -23,24 +23,24 @@
     <table class="table table-striped table-hover">
         <tr>
             <th>Name</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Customer_Id</th>
+            <th>Price</th>
+            <th>ProductId</th>
+            <th>StoreFrontId</th>
         </tr>
-        @foreach (CustomerVM item in Model)
+        @foreach (ProductVM item in Model)
         {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                <td>@Html.DisplayFor(modelItem => item.Address)</td>
-                <td>@Html.DisplayFor(modelItem => item.CustomerId)</td>
-                <td>
-                    <!--First parameter of ActionLink is the name it will give for this element -->
-                    <!--Second parameter will point to the action of the restaurant controller-->
-                    <!--Third parameter will give the information from the view to the controller-->
-                    <button class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { CustomerId = item.CustomerId }, new { @style = "color: white;" })</button>
-                    <button class="btn btn-primary">@Html.ActionLink("Login", "Login", new { CustomerId = item.CustomerId }, new { @style = "color: white" })</button>
-                </td>
-            </tr>
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+        <td>@Html.DisplayFor(modelItem => item.Price)</td>
+        <td>@Html.DisplayFor(modelItem => item.ProductId)</td>
+        <td>@Html.DisplayFor(modelItem => item.StoreFrontId)</td>
+        <td>
+            <!--First parameter of ActionLink is the name it will give for this element -->
+            <!--Second parameter will point to the action of the restaurant controller-->
+            <!--Third parameter will give the information from the view to the controller-->
+            <button class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { ProductId = item.ProductId }, new { @style = "color: white;" })</button>
+            <button class="btn btn-danger">@Html.ActionLink("Place Order", "Index", "OrderPlacement", new { @style = "color: white;" })</button>
+        </td>
+    </tr>
         }
     </table>

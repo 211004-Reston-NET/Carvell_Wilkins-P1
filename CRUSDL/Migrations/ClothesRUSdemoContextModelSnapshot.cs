@@ -16,7 +16,7 @@ namespace CRUSDL.Migrations
             modelBuilder
                 .HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.11")
+                .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("CRUSModels.Customer", b =>
@@ -83,18 +83,20 @@ namespace CRUSDL.Migrations
                         .HasColumnType("int")
                         .HasColumnName("Customer_ID");
 
+                    b.Property<int>("Price")
+                        .HasColumnType("int")
+                        .HasColumnName("Price");
+
                     b.Property<int>("StoreFrontId")
                         .HasColumnType("int")
                         .HasColumnName("StoreFront_ID");
-
-                    b.Property<int>("TotalPrice")
-                        .HasColumnType("int")
-                        .HasColumnName("Total_Price");
 
                     b.HasKey("OrderId")
                         .HasName("PK__OrderPla__464665E1B7D4693B");
 
                     b.HasIndex("CustomerId");
+
+                    b.HasIndex("Price");
 
                     b.HasIndex("StoreFrontId");
 
@@ -169,21 +171,6 @@ namespace CRUSDL.Migrations
                     b.ToTable("TestTables");
                 });
 
-            modelBuilder.Entity("OrderPlacementProduct", b =>
-                {
-                    b.Property<int>("OrderPlacementsOrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrderPlacementsOrderId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("OrderPlacementProduct");
-                });
-
             modelBuilder.Entity("CRUSModels.OrderPlacement", b =>
                 {
                     b.HasOne("CRUSModels.Customer", "Customer")
@@ -191,6 +178,13 @@ namespace CRUSDL.Migrations
                         .HasForeignKey("CustomerId")
                         .HasConstraintName("FK__OrderPlac__Custo__10566F31")
                         .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("CRUSModels.Product", "Product")
+                        .WithMany("OrderPlacements")
+                        .HasForeignKey("Price")
+                        .HasConstraintName("FK__OrderPlac__Produ__0F624AF8")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CRUSModels.StoreFront", "StoreFront")
@@ -201,6 +195,8 @@ namespace CRUSDL.Migrations
                         .IsRequired();
 
                     b.Navigation("Customer");
+
+                    b.Navigation("Product");
 
                     b.Navigation("StoreFront");
                 });
@@ -217,24 +213,14 @@ namespace CRUSDL.Migrations
                     b.Navigation("StoreFront");
                 });
 
-            modelBuilder.Entity("OrderPlacementProduct", b =>
-                {
-                    b.HasOne("CRUSModels.OrderPlacement", null)
-                        .WithMany()
-                        .HasForeignKey("OrderPlacementsOrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CRUSModels.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("CRUSModels.Customer", b =>
                 {
                     b.Navigation("orderPlacements");
+                });
+
+            modelBuilder.Entity("CRUSModels.Product", b =>
+                {
+                    b.Navigation("OrderPlacements");
                 });
 
             modelBuilder.Entity("CRUSModels.StoreFront", b =>

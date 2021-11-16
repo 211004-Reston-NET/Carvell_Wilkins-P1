@@ -56,6 +56,8 @@ namespace CRUSBL
 
         Customer DeleteCustomer(Customer p_customer);
 
+        List<OrderPlacement> GetAllOrders();
+
 
 
     }

@@ -24,11 +24,14 @@ namespace CRUSWebUI.Controllers
             //We got our list of restaurant from our business layer
             //We converted that Model restaurant into RestaurantVM using Select method
             //Finally we changed it to a List with ToList()
-            return View(_restBL.getAllProduct()
+            ViewData.Add("CustomerName", SingletonVM.customer.Name);
+            ViewData.Add("CustomerEmail", SingletonVM.customer.Email);
+            return View(_restBL.GetAllProduct()
                         .Select(rest => new ProductVM(rest))
                         .ToList()
             );
         }
+
 
         [HttpGet]
         public IActionResult Create()

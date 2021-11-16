@@ -8,7 +8,7 @@ namespace CRUSBL
     {
         /// <summary>
         /// This Will grab the list of products from Repository.
-        List<Product> getAllProduct(); 
+        List<Product> GetAllProduct(); 
         //CategoryMenu(string p_category);
         List<Product> getProduct( string p_product);
 

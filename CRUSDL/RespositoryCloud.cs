@@ -19,13 +19,7 @@ namespace CRUSDL
         {
             _context.Customers.Add(p_customer);
             
-            //    new Customer()
-            //    {
-            //        Name = p_customer.Name,
-            //        Email = p_customer.Email,
-            //        Address = p_customer.Address
-            //    }
-            
+         
 
             //This method will save the changes made to the database
             _context.SaveChanges();
@@ -34,6 +28,7 @@ namespace CRUSDL
 
         public OrderPlacement AddOrder(OrderPlacement p_orderPlacement)
         {
+            _context.OrderPlacements.Add(p_orderPlacement);
             _context.SaveChanges();
             return p_orderPlacement;
         }
@@ -57,6 +52,12 @@ namespace CRUSDL
             // }
             //  ).ToList();
 
+        }
+        List<OrderPlacement> GetAllOrders()
+          {
+            return _context.OrderPlacements.ToList();
+            
+          
         }
 
         public List<LineItem> GetAllLineItems() //(int p_productId)
@@ -170,7 +171,7 @@ namespace CRUSDL
 
         List<Product> IRepository.GetAllProduct()
         {
-            throw new System.NotImplementedException();
+            return _context.Products.ToList();    
         }
 
         Product IRepository.GetProductsByItemId(int p_ItemId)
@@ -206,12 +207,22 @@ namespace CRUSDL
 
         public List<Product> GetAllProductByProductID(int p_prodcutId)
         {
-            throw new System.NotImplementedException();
+            return _context.Products.ToList();    
         }
 
         public Customer GetSingleCustomer()
         {
            return _context.Customers.Find();
+        }
+
+        List<OrderPlacement> IRepository.GetAllOrders()
+        {
+            
+          
+            return _context.OrderPlacements.ToList();
+            
+          
+        
         }
     }
 }

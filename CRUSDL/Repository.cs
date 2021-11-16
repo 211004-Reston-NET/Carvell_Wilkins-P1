@@ -160,6 +160,11 @@ namespace CRUSDL
             throw new NotImplementedException();
         }
 
+        public List<OrderPlacement> GetAllOrders()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Product> GetAllProduct()
         {
             throw new NotImplementedException();

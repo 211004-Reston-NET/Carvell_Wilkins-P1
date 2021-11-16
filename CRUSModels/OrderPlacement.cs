@@ -9,12 +9,14 @@ namespace CRUSModels
     // The orders contain information about customer orders.
     {
         // private List<LineItem> _lineItems = new List<LineItem>();
-        private List<Product> _product;
-        public List<Product> Product
-        {
-            get { return _product; }
-            set { _product = value; }
-        }
+
+        //***this section I commented out so that I may scaffel correctly and at price 
+        // private List<Product> _product;
+        // public List<Product> Product
+        // {
+        //     get { return _product; }
+        //     set { _product = value; }
+        // }
         
        
        [Key]
@@ -25,11 +27,13 @@ namespace CRUSModels
         // public int ProductId {get;set;}
                 
         public int CustomerId { get; set; }
+
+        public int ProductId {get; set;}
         
 
      
-        
-        private int _totalPrice;
+        /*Changed Total price to Price. doing this so that orderplacement could show the price*/
+        public int Price { get; set; }
 
         
        // public OrderPlacement orderPlacement {get;set;}
@@ -39,18 +43,22 @@ namespace CRUSModels
 
         
        public virtual Customer Customer { get; set; }
+
+       public virtual Product Product {get; set;}
        
-        public int TotalPrice
-        {
-            get
-            {
-                return _totalPrice;
-            }
-            set
-            {
-                _totalPrice = value;
-            }
-        }
+               /*Changed Total price to Price. doing this so that orderplacement could show the price changed 11/16*/
+
+        // public int Price
+        // {
+        //     get
+        //     {
+        //         return _price;
+        //     }
+        //     set
+        //     {
+        //         _price = value;
+        //     }
+        // }
        
     }
 }

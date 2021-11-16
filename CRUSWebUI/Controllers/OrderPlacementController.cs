@@ -24,12 +24,14 @@ namespace CRUSWebUI.Controllers
             //We got our list of restaurant from our business layer
             //We converted that Model restaurant into RestaurantVM using Select method
             //Finally we changed it to a List with ToList()
-            return View(_restBL.GetOrders()
+
+            ViewData.Add("CustomerName", SingletonVM.customer.Name);
+            ViewData.Add("CustomerEmail", SingletonVM.customer.Email);
+            return View(_restBL.GetAllOrders()
                         .Select(rest => new OrderPlacementVM(rest))
                         .ToList()
             );
         }
-
         [HttpGet]
         public IActionResult Create()
         {
@@ -47,9 +49,9 @@ namespace CRUSWebUI.Controllers
                 _restBL.AddOrder(new OrderPlacement()
                 {   
                     StoreFrontId = restVM.StoreFrontId,
-                    OrderId= restVM.OrderId,
+                    
                     CustomerId = restVM.CustomerId,
-                    TotalPrice = (int) restVM.TotalPrice
+                    Price = (int) restVM.Price
                    
                 });
 
@@ -86,6 +88,28 @@ namespace CRUSWebUI.Controllers
                 return View();
             }
         }
+        [HttpPost]
+        public IActionResult Create1(OrderPlacementVM restVM)
+        {
+            //This if statement will check if the current model that is being passed through is valid
+            //If not, the asp-validation-for attribute elements will appear and autofill in the proper feedback for the user 
+            //to correct themselves
+            if (ModelState.IsValid)
+            {
+                _restBL.AddOrder(new OrderPlacement()
+                {
+                    CustomerId = restVM.CustomerId,
+                    StoreFrontId = restVM.StoreFrontId,
+                    Price = (int) restVM.Price
+                });
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            //Will return back to the create view if the user didn't specify the right input
+            return View();
+        }
+
 
         // GET: RestaurantController/Delete/5
         public ActionResult Delete(int id)

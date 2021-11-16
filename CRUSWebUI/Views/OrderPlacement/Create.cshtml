@@ -1,0 +1,41 @@
+﻿@*
+    @*
+        For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model CRUSWebUI.Models.OrderPlacementVM
+
+<h1 class="display-4">Make an Order</h1>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="mb-3">
+        <label asp-for="StoreFrontId" class="form-label">StoreFrontId</label>
+        <input asp-for="StoreFrontId" type="text" class="form-control">
+        <span asp-validation-for="StoreFrontId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CustomerId" class="form-label">CustomerId</label>
+        <input asp-for="CustomerId" type="text" class="form-control">
+        <span asp-validation-for="CustomerId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ProductId" class="form-label">ProductId</label>
+        <input asp-for="ProductId" type="text" class="form-control">
+        <span asp-validation-for="ProductId" class="text-danger"></span>
+    </div>
+
+    @*<div class="mb-3">
+        <label asp-for="Price" class="form-label">Price</label>
+        <input asp-for="Price" type="text" class="form-control">
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>*@
+
+
+
+    <button type="submit" class="btn btn-primary" value="Create">Submit</button>
+</form>

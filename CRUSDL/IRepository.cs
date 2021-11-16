@@ -23,6 +23,7 @@ namespace CRUSDL
         /// </summary>
         /// <returns> Will return a list of customers</returns>
         List<Customer> GetAllCustomer();
+        List<OrderPlacement> GetAllOrders();
 
         /// <summary>
         /// this is going to add a customer to our customer database. 
