@@ -24,7 +24,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration releases --no-restore
+      run: dotnet build --configuration  
     - name: Test
       run: dotnet test --no-restore --verbosity normal
     - name: publish
@@ -34,6 +34,6 @@ jobs:
       with:
         app-name: CRUSProjectP1
         publish-profile: ${{secrets.AZURE_WEBAPP_PUBLISH1_PROFILE}}
-        package: publish
+        package: publish1
         
       
