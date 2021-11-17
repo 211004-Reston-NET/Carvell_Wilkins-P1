@@ -38,7 +38,7 @@ namespace CRUSBL
 
          public OrderPlacement AddOrder(OrderPlacement p_orderPlacement)
         {
-            if (p_orderPlacement.Price == 0 || p_orderPlacement.CustomerId == 0 )
+            if (p_orderPlacement.ProductId <= 0 || p_orderPlacement.CustomerId <= 0 || p_orderPlacement.StoreFrontId <= 0 || p_orderPlacement.Price <= 0)
             {
                 throw new Exception("You must have a value in all of the properties of the customeraurant class");
             }

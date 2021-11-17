@@ -32,6 +32,9 @@ namespace CRUSWebUI.Controllers
 
         public ActionResult WelcomePage()
         {
+
+            ViewData.Add("OrderId", SingletonVM.orderPlacement.OrderId);
+            ViewData.Add("CustomerId", SingletonVM.orderPlacement.CustomerId);
             ViewData.Add("CustomerName", SingletonVM.customer.Name);
             ViewData.Add("CustomerEmail", SingletonVM.customer.Email);
             return View(_restBL.GetAllCustomer()

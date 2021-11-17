@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRUSDL.Migrations
 {
     [DbContext(typeof(ClothesRUSdemoContext))]
-    [Migration("20211116165119_firstcommit")]
-    partial class firstcommit
+    [Migration("20211116212452_FirstCommit")]
+    partial class FirstCommit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,6 +89,10 @@ namespace CRUSDL.Migrations
                         .HasColumnType("int")
                         .HasColumnName("Price");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int")
+                        .HasColumnName("Product_ID");
+
                     b.Property<int>("StoreFrontId")
                         .HasColumnType("int")
                         .HasColumnName("StoreFront_ID");
@@ -98,7 +102,7 @@ namespace CRUSDL.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.HasIndex("Price");
+                    b.HasIndex("ProductId");
 
                     b.HasIndex("StoreFrontId");
 
@@ -184,7 +188,7 @@ namespace CRUSDL.Migrations
 
                     b.HasOne("CRUSModels.Product", "Product")
                         .WithMany("OrderPlacements")
-                        .HasForeignKey("Price")
+                        .HasForeignKey("ProductId")
                         .HasConstraintName("FK__OrderPlac__Produ__0F624AF8")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

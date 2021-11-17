@@ -87,6 +87,10 @@ namespace CRUSDL.Migrations
                         .HasColumnType("int")
                         .HasColumnName("Price");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int")
+                        .HasColumnName("Product_ID");
+
                     b.Property<int>("StoreFrontId")
                         .HasColumnType("int")
                         .HasColumnName("StoreFront_ID");
@@ -96,7 +100,7 @@ namespace CRUSDL.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.HasIndex("Price");
+                    b.HasIndex("ProductId");
 
                     b.HasIndex("StoreFrontId");
 
@@ -182,7 +186,7 @@ namespace CRUSDL.Migrations
 
                     b.HasOne("CRUSModels.Product", "Product")
                         .WithMany("OrderPlacements")
-                        .HasForeignKey("Price")
+                        .HasForeignKey("ProductId")
                         .HasConstraintName("FK__OrderPlac__Produ__0F624AF8")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

@@ -8,6 +8,8 @@
 @model IEnumerable<CRUSWebUI.Models.CustomerVM>
 
     <h1 class="display-4">Welcome @ViewData["CustomerName"]  </h1>
+    <h1 class="display-4">Welcome @ViewData["OrderId"]  </h1>
+    <h1 class="display-4">Welcome @ViewData["CustomerId"]  </h1>
     @*<br />
         <h1>@ViewBag["Customer Name"]</h1>
         <h1>@ViewBag["Customer Email"]</h1>*@
@@ -37,19 +39,19 @@
             <th>Total_Price</th>
         </tr>
         @*@foreach (OrderPlacementVM item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                <td>@Html.DisplayFor(modelItem => item.Address)</td>
-                <td>@Html.DisplayFor(modelItem => item.CustomerId)</td>*@
-                <td>
-                    <!--First parameter of ActionLink is the name it will give for this element -->
-                    <!--Second parameter will point to the action of the restaurant controller-->
-                    <!--Third parameter will give the information from the view to the controller-->
-                    <button class="btn btn-danger">@Html.ActionLink("StoreFronts", "Index", "StoreFront", new { @style = "color: white;" })</button>
-                    <button class="btn btn-primary">@Html.ActionLink("Login", "Details", new { @style = "color: white" })</button>
-                </td>
-            </tr>
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CustomerId)</td>*@
+        <td>
+            <!--First parameter of ActionLink is the name it will give for this element -->
+            <!--Second parameter will point to the action of the restaurant controller-->
+            <!--Third parameter will give the information from the view to the controller-->
+            <button class="btn btn-danger">@Html.ActionLink("StoreFronts", "Index", "StoreFront", new { @style = "color: white;" })</button>
+            <button class="btn btn-primary">@Html.ActionLink("Login", "Details", new { @style = "color: white" })</button>
+        </td>
+        </tr>
         }
     </table>

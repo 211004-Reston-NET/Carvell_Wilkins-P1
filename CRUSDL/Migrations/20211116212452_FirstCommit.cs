@@ -2,7 +2,7 @@
 
 namespace CRUSDL.Migrations
 {
-    public partial class firstcommit : Migration
+    public partial class FirstCommit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -92,6 +92,7 @@ namespace CRUSDL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     StoreFront_ID = table.Column<int>(type: "int", nullable: false),
                     Customer_ID = table.Column<int>(type: "int", nullable: false),
+                    Product_ID = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -104,7 +105,7 @@ namespace CRUSDL.Migrations
                         principalColumn: "Customer_ID");
                     table.ForeignKey(
                         name: "FK__OrderPlac__Produ__0F624AF8",
-                        column: x => x.Price,
+                        column: x => x.Product_ID,
                         principalTable: "Product",
                         principalColumn: "Product_ID",
                         onDelete: ReferentialAction.Cascade);
@@ -121,9 +122,9 @@ namespace CRUSDL.Migrations
                 column: "Customer_ID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderPlacement_Price",
+                name: "IX_OrderPlacement_Product_ID",
                 table: "OrderPlacement",
-                column: "Price");
+                column: "Product_ID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderPlacement_StoreFront_ID",

@@ -49,7 +49,7 @@ namespace CRUSWebUI.Controllers
                 _restBL.AddOrder(new OrderPlacement()
                 {   
                     StoreFrontId = restVM.StoreFrontId,
-                    
+                    ProductId = restVM.ProductId,
                     CustomerId = restVM.CustomerId,
                     Price = (int) restVM.Price
                    

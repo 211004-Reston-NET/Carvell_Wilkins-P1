@@ -81,7 +81,7 @@ namespace CRUSDL
 
                 entity.Property(e => e.CustomerId).HasColumnName("Customer_ID");
 
-                //entity.Property(e => e.).HasColumnName("Product_ID");
+                entity.Property(e => e.ProductId).HasColumnName("Product_ID");
 
                 entity.Property(e => e.StoreFrontId).HasColumnName("StoreFront_ID");
                 /*Changed Total price to Price. doing this so that orderplacement could show the price*/
@@ -99,6 +99,7 @@ namespace CRUSDL
                 entity.HasOne(d => d.Product)
                      .WithMany(p => p.OrderPlacements)
                      .HasForeignKey(d => d.Price)
+                     .HasForeignKey(d => d.ProductId)
                      .HasConstraintName("FK__OrderPlac__Produ__0F624AF8");
 
                 entity.HasOne(d => d.StoreFront)
