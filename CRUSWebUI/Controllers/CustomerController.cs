@@ -33,8 +33,7 @@ namespace CRUSWebUI.Controllers
         public ActionResult WelcomePage()
         {
 
-            ViewData.Add("OrderId", SingletonVM.orderPlacement.OrderId);
-            ViewData.Add("CustomerId", SingletonVM.orderPlacement.CustomerId);
+            
             ViewData.Add("CustomerName", SingletonVM.customer.Name);
             ViewData.Add("CustomerEmail", SingletonVM.customer.Email);
             return View(_restBL.GetAllCustomer()
@@ -47,6 +46,8 @@ namespace CRUSWebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult WelcomePage(CustomerVM p_customerVM)
         {
+            ViewData.Add("OrderId", SingletonVM.orderPlacement.OrderId);
+            ViewData.Add("CustomerId", SingletonVM.customer.CustomerId);
             ViewBag.CustomerName = SingletonVM.customer.Name;
             ViewBag.CustomerAddress = SingletonVM.customer.Address;
             if (ModelState.IsValid)
@@ -75,6 +76,7 @@ namespace CRUSWebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Details(CustomerVM p_customerVM)
         {
+            ViewData.Add("CustomerId", SingletonVM.customer.CustomerId);
             ViewBag.CustomerName = SingletonVM.customer.Name;
             ViewBag.CustomerAddress = SingletonVM.customer.Email;
             if (ModelState.IsValid)

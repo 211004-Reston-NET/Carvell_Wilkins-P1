@@ -58,6 +58,8 @@ namespace CRUSBL
 
         List<OrderPlacement> GetAllOrders();
 
+        OrderPlacement GetOrderById(int p_orderPlacementId);
+
 
 
     }

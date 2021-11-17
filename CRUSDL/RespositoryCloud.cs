@@ -205,6 +205,11 @@ namespace CRUSDL
             return _context.Customers.Find(p_customerId);
         }
 
+         public OrderPlacement GetOrderById(int p_orderId)
+        {
+            return _context.OrderPlacements.Find(p_orderId);
+        }
+
         public List<Product> GetAllProductByProductID(int p_prodcutId)
         {
             return _context.Products.ToList();    

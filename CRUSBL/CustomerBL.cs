@@ -118,6 +118,24 @@ namespace CRUSBL
             return custFound;
         }
 
+          public OrderPlacement GetOrderById(int OrderId)
+       
+           {
+            OrderPlacement OrderFound = _repo.GetOrderById( OrderId );
+            
+
+            
+            
+
+            if (OrderFound == null)
+            {
+                throw new Exception("Customer was not found!");
+            }
+
+            return OrderFound;
+        }
+
+
 
         public Customer GetACustomer(string p_name, string p_email)
         {

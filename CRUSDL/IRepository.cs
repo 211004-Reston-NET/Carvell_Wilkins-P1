@@ -78,5 +78,7 @@ namespace CRUSDL
 
         Customer GetCustomerById(int p_customer);
         List<Product> GetAllProductByProductID(int p_prodcutId);
+
+         OrderPlacement GetOrderById(int OrderId);
     }
 }

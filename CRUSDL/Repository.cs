@@ -207,6 +207,11 @@ namespace CRUSDL
             throw new NotImplementedException();
         }
 
+        public OrderPlacement GetOrderById(int OrderId)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<OrderPlacement> GetOrders(string p_order)
         {
             throw new NotImplementedException();

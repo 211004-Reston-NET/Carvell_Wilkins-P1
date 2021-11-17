@@ -24,7 +24,8 @@ namespace CRUSWebUI.Controllers
             //We got our list of restaurant from our business layer
             //We converted that Model restaurant into RestaurantVM using Select method
             //Finally we changed it to a List with ToList()
-
+            ViewData.Add("OrderId", SingletonVM.orderPlacement.OrderId);
+            ViewData.Add("CustomerId", SingletonVM.orderPlacement.CustomerId);
             ViewData.Add("CustomerName", SingletonVM.customer.Name);
             ViewData.Add("CustomerEmail", SingletonVM.customer.Email);
             return View(_restBL.GetAllOrders()
@@ -112,18 +113,20 @@ namespace CRUSWebUI.Controllers
 
 
         // GET: RestaurantController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int OrderId)
         {
-            return View();
+            return View(new OrderPlacementVM(_restBL.GetOrderById(OrderId)));
         }
 
         // POST: RestaurantController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int OrderId, IFormCollection collection)
         {
             try
             {
+                OrderPlacement toBeDeleted = _restBL.GetOrderById(OrderId);
+                _restBL.DeleteOrderPlacement(toBeDeleted);
                 return RedirectToAction(nameof(Index));
             }
             catch
